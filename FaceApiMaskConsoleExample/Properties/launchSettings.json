@@ -3,8 +3,8 @@
     "FaceApiMaskConsoleExample": {
       "commandName": "Project",
       "environmentVariables": {
-        "FACE_SUBSCRIPTION_KEY_HERE": "",
-        "IMAGE_BASE_URL_MASK": "",
+        "FACE_SUBSCRIPTION_KEY_HERE": "40817fb162dc47b18295c7466f2dfc97",
+        "IMAGE_BASE_URL_MASK": "https://demosai.blob.core.windows.net/faceapi/",
         "FACE_ENDPOINT_HERE": "https://xamarinfaceapi.cognitiveservices.azure.com/"
       }
     }

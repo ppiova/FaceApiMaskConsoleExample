@@ -14,7 +14,7 @@ namespace FaceApiMaskConsoleExample
 
 
         // URL for the images with mask.
-        static string imageBaseUrl = Environment.GetEnvironmentVariable("IMAGE_BASE_URL_MASK");
+        static string imageBaseUrl = "https://demosai.blob.core.windows.net/faceapi/";
 
         static void Main(string[] args)
         {
@@ -42,8 +42,9 @@ namespace FaceApiMaskConsoleExample
                             {
                                 "MaskJuanchi-01.jpeg",     // a man using mask NoseAndMouthCovered
 							    "MaskJuanchi-02.jpg",     // a man using mask NoseAndMouthCovered false
-								"Piova-Lentes.jpeg"         // piova using glasses and mask
-							};
+								"Piova-Lentes.jpeg" ,        // piova using glasses and mask
+                                "personas-barbijos.jpg"     //
+                            };
             foreach (var imageFileName in imageFileNames)
             {
                 IList<DetectedFace> detectedFaces;
@@ -56,11 +57,12 @@ namespace FaceApiMaskConsoleExample
                         // We specify detection model 3 because we are retrieving attributes of mask.
                         detectionModel: DetectionModel.Detection03,
                         recognitionModel: recognitionModel);
-
+                Console.WriteLine("----------------------------------------------------------------------------------");
                 Console.WriteLine($"{detectedFaces.Count} face(s) detected from image `{imageFileName}`.");
                 
                 foreach (var face in detectedFaces)
                 {
+                   
                     Console.WriteLine($"Face attributes for {imageFileName}:");
 
                     // Get bounding box of the faces
@@ -69,6 +71,7 @@ namespace FaceApiMaskConsoleExample
                     Console.WriteLine($"Type Mask: {face.FaceAttributes.Mask.Type}");
                     //Value returns a boolean 'noseAndMouthCovered' indicating whether nose and mouth are covered.
                     Console.WriteLine($"Nose And Mouth Covered: {face.FaceAttributes.Mask.NoseAndMouthCovered}");
+                    Console.WriteLine("================");
                 }
             }
 
